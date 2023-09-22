@@ -1,0 +1,27 @@
+{
+  "name": "notevault-backend",
+  "version": "1.0.0",
+  "description": "NoteVault - your notebook on cloud",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rahimeen-Altaf/NoteVault-Backend.git"
+  },
+  "author": "Rahimeen-Altaf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rahimeen-Altaf/NoteVault-Backend/issues"
+  },
+  "homepage": "https://github.com/Rahimeen-Altaf/NoteVault-Backend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
