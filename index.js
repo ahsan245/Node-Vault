@@ -1,5 +1,6 @@
 const connectToMongo = require('./db');
 const express = require('express');
+require('dotenv').config({ path: '.env.local' });
 
 connectToMongo();
 const app = express()
@@ -12,9 +13,9 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
 app.get('/', (req, res) => {
-  res.send('Hello Rahimeen!');
+  res.send('Hello From NoteVault!');
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`)
+  console.log(`App listening on port http://localhost:${port}`)
 })
