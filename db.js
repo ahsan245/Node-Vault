@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI = "mongodb://127.0.0.1:27017/NoteVault";
+const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/NoteVault';
 
 const connectToMongo = async () => {
     try {
