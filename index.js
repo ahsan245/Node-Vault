@@ -1,7 +1,8 @@
 const connectToMongo = require('./db');
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config({ path: '.env.local' });
+require("dotenv").config();
+
 
 connectToMongo();
 const app = express()
@@ -17,6 +18,8 @@ app.get('/', (req, res) => {
   res.send('Hello From NoteVat!');
 })
 
-app.listen(process.env.port,function(){
-  console.log("Welcome to Node!");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Our app is running on port ${PORT}`);
+
 });
