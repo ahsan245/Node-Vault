@@ -18,5 +18,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.port,function(){
-  console.log("Ready to Go!");
+  console.log("Welcome to Node!");
 });
