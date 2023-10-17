@@ -5,7 +5,6 @@ require('dotenv').config({ path: '.env.local' });
 
 connectToMongo();
 const app = express()
-const port = 5000
 
 app.use(cors());
 app.use(express.json());
@@ -18,6 +17,6 @@ app.get('/', (req, res) => {
   res.send('Hello From NoteVault!');
 })
 
-app.listen(port, () => {
-  console.log(`NoteVault backend listening on port http://localhost:${port}`)
-})
+app.listen(process.env.port,function(){
+  console.log("Ready to Go!");
+});
