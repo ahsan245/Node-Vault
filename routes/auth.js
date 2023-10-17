@@ -21,10 +21,10 @@ router.post(
   ],
   async (req, res) => {
     let success = false;
-    // If there are errors, return Bad request and the errors
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ success, errors: errors.array() });
+    // If there are error, return Bad request and the error
+    const error = validationResult(req);
+    if (!error.isEmpty()) {
+      return res.status(400).json({ success, error: error.array() });
     }
 
     try {
@@ -53,7 +53,7 @@ router.post(
       };
       const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: '1h' });
       //const authToken = jwt.sign(data, JWT_SECRET);
-      
+
       success = true;
       res.json({ success, authToken });
     } catch (error) {
@@ -76,10 +76,10 @@ router.post(
   ],
   async (req, res) => {
     let success = false;
-    // If there are errors, return Bad request and the errors
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ success, errors: errors.array() });
+    // If there are error, return Bad request and the error
+    const error = validationResult(req);
+    if (!error.isEmpty()) {
+      return res.status(400).json({ success, error: error.array() });
     }
 
     const { email, password } = req.body;
@@ -87,13 +87,13 @@ router.post(
       let user = await User.findOne({ email });
       if (!user) {
         success = false;
-        return res.status(400).json({ success, errors: "Email not found." });
+        return res.status(400).json({ success, error: "Email not found." });
       }
 
       const comparePassword = await bcrypt.compare(password, user.password);
       if (!comparePassword) {
         success = false;
-        return res.status(400).json({ success, errors: "incorrect password." });
+        return res.status(400).json({ success, error: "incorrect password." });
       }
 
       const data = {
