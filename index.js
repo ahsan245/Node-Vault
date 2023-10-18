@@ -15,7 +15,7 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
 app.get('/', (req, res) => {
-  res.send('Hello From NoteVat!');
+  res.send('Hello From NoteVault!');
 })
 
 const PORT = process.env.PORT || 3000;
